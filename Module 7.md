@@ -16,12 +16,47 @@ Else
  
 Program:
 
-//type your code here
+#include <stdio.h>
+struct eligible 
+{
+    int age;
+    char n[50];
+};
+
+int main() 
+{
+    struct eligible e;
+    printf("Enter name: ");
+    scanf("%s", e.n);
+    printf("Enter age: ");
+    scanf("%d", &e.age);
+    if (e.age <= 6)
+    {
+        printf("Vaccine Eligibility: No\n");
+    } else
+    {
+        printf("Vaccine Eligibility: Yes\n");
+    }
+    printf("Details:\n");
+    printf("Name: %s\n", e.n);
+    printf("Age: %d\n", e.age);
+    return 0;
+}
 
 
 Output:
 
-//paste your output here
+Enter name: Rahul
+
+Enter age: 5
+
+Vaccine Eligibility: No
+
+Details:
+
+Name: Rahul
+
+Age: 5
 
 
 Result:
@@ -43,16 +78,41 @@ Algorithm:
 7.	Return 0
  
 Program:
+#include <stdio.h>
+struct numbers {
+    int a;
+    int b;
+};
 
-//type your code here
+struct numbers add(struct numbers n) {
+    struct numbers result;
+    result.a = n.a + n.b;
+    return result;
+}
+
+int main() {
+    struct numbers n, summ;
+    printf("Enter value for a: ");
+    scanf("%d", &n.a);
+    printf("Enter value for b: ");
+    scanf("%d", &n.b);
+    sum = add(n);
+    printf("Sum of a and b: %d\n", sum.a);
+    return 0;
+}
 
 
 
 
 Output:
 
+Enter value for a: 10
 
-//paste your output here
+Enter value for b: 20
+
+Sum of a and b: 30
+
+Result: Thus, the program is verified successfully
 
 
 
@@ -86,21 +146,36 @@ Use scanf to input the file name into the name array.
  
 Program:
 
-//type your code here
+#include <stdio.h>
+
+int main() {
+    FILE *p;
+    char name[100];
+    printf("Enter the file name: ");
+    scanf("%s", name);
+    printf("File name '%s' received.\n", name);
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    printf("File opened successfully.\n");
+    fclose(p);
+    printf("File closed successfully.\n");
+    return 0;
+}
 
 
 
 
 Output:
+Enter the file name: example.txt
 
+File name 'example.txt' received.
 
-//paste your output here
+File opened successfully.
 
-
-
-
-
-
+File closed successfully.
 
 
 
@@ -132,21 +207,48 @@ Use scanf to input the file name into the name array and the number of strings i
 5.	Return 0 to indicate successful program execution.
  
 Program:
+#include <stdio.h>
 
-//type your code here
-
-
+int main() {
+    FILE *p;
+    char name[100], text[100];
+    int num, i;
+    printf("Enter the file name: ");
+    scanf("%s", name);
+    printf("Enter the number of strings to insert: ");
+    scanf("%d", &num);
+    p = fopen(name, "w");
+    if (p == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+    printf("File opened successfully.\n");
+    for (i = 0; i < num; i++) {
+        printf("Enter string %d: ", i + 1);
+        scanf(" %[^\n]", text);  // Read a full line including spaces
+        fputs(text, p);
+        fputs("\n", p);          // Add a new line after each string
+    }
+    fclose(p);
+    printf("Data added successfully and file closed.\n");
+    return 0;
+}
 
 
 Output:
+Enter the file name: myfile.txt
 
+Enter the number of strings to insert: 3
 
-//paste your output here
+File opened successfully.
 
+Enter string 1: Hello, this is line one.
 
+Enter string 2: This is line two.
 
+Enter string 3: And this is line three.
 
-
+Data added successfully and file closed.
 
 Result:
 Thus, the program is verified successfully
@@ -187,20 +289,63 @@ Algorithm:
 
 Program:
 
-//type your code here
+#include <stdio.h>
+#include <stdlib.h>
+
+struct subject {
+    char name[50];
+    int marks;
+};
+
+int main() {
+    int n, i;
+    struct subject *s;
+    printf("Enter the number of subjects: ");
+    scanf("%d", &n);
+    s = (struct subject *)malloc(n * sizeof(struct subject));
+    if (s == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+    for (i = 0; i < n; i++) {
+        printf("Enter name of subject %d: ", i + 1);
+        scanf("%s", s[i].name);
+        printf("Enter marks of subject %d: ", i + 1);
+        scanf("%d", &s[i].marks);
+    }
+    printf("\nSubject Details:\n");
+    for (i = 0; i < n; i++) {
+        printf("Subject %d: Name = %s, Marks = %d\n", i + 1, s[i].name, s[i].marks);
+    }
+    free(s);
+    return 0;
+}
 
 
 
 
 Output:
+Enter the number of subjects: 3
 
+Enter name of subject 1: Math
 
-//paste your output here
+Enter marks of subject 1: 85
 
+Enter name of subject 2: Science
 
+Enter marks of subject 2: 90
 
+Enter name of subject 3: History
 
+Enter marks of subject 3: 75
 
+Subject Details:
+
+Subject 1: Name = Math, Marks = 85
+
+Subject 2: Name = Science, Marks = 90
+
+Subject 3: Name = History, Marks = 75
 
 Result:
 Thus, the program is verified successfully
