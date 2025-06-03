@@ -114,6 +114,8 @@ int main() {
     }
     return 0;
 }
+
+
 Output:
 
 Enter a number: 5
@@ -255,6 +257,7 @@ rat cat dog
 
 rat dog cat
 
+
 Result:
 Thus, the program is verified successfully
  
@@ -303,6 +306,8 @@ Enter the value of n: 3
 3 2 2 2 3
 
 3 3 3 3 3
+
+
 Result:
 Thus, the program is verified successfully
 
@@ -347,6 +352,8 @@ Output:
 Enter a number: 5
 
 The square of the number is: 25
+
+
 Result:
 Thus, the program is verified successfully
 
