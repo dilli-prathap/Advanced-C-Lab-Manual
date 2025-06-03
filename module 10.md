@@ -402,25 +402,20 @@ void deleteNode(struct Node** head, int key) {
         printf("List is empty.\n");
         return;
     }
-
     struct Node* temp = *head;
-
     if (temp != NULL && temp->data == key) {
         *head = temp->next;
         free(temp);
         printf("Element %d deleted.\n", key);
         return;
     }
-
     while (temp != NULL && temp->data != key) {
         temp = temp->next;
     }
-
     if (temp == NULL) {
         printf("Element %d not found in the list.\n", key);
         return;
     }
-
     temp->next = temp->next->next;
     free(temp->next);
     printf("Element %d deleted.\n", key);
